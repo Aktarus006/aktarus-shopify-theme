@@ -68,9 +68,10 @@
               </div>
 
             {% endfor %}
-            {% if paginate.pages > 1 %}
-              {{ paginate | default_pagination }}
-            {% endif %}
+            <div class="max-w-6xl mx-auto">
+              {% render 'pagination'
+                , pagination: paginate %}
+            </div>
           {% endpaginate %}
 
         </div>
@@ -168,21 +169,21 @@
       "articleBody": {{ article.content | strip_html | json }},
       {% if article.excerpt != blank %}
         "description": {{ article.excerpt | strip_html | json }},
-      {% endif %}
-      {% if article.image %}
-        "image" : [{{ article.image | img_url: 'medium' |  prepend: 'https:' | json }}],
-      {% endif %}
-      "datePublished": {{ article.published_at | date: format : 'default' | json }},
-      "dateCreated": {{ article.created_at | date: format : 'default' | json }},
-      "author": {
-        "@type": "Person",
-        "name": {{ article.author | json }}
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": {{ shop.name | json }}
-      }
-    }
+        {% endif %}
+        {% if article.image %}
+          "image" : [{{ article.image | img_url: 'medium' |  prepend: 'https:' | json }}],
+          {% endif %}
+          "datePublished": {{ article.published_at | date: format : 'default' | json }},
+          "dateCreated": {{ article.created_at | date: format : 'default' | json }},
+          "author": {
+            "@type": "Person",
+            "name": {{ article.author | json }}
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": {{ shop.name | json }}
+          }
+        }
   </script>
   {% schema %}
     {
