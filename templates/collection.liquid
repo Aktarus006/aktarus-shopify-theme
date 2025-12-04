@@ -4,9 +4,17 @@
     <div>
       <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
       {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+      {% unless product.available -%}
+        <br>
+        <strong>sold out</strong>
+      {%- endunless %}
       <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        <img
+          src="{{ product.featured_image.src | image_url: width: 800 }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          width="800"
+          height="800"
+        >
       </a>
     </div>
   {% else %}
