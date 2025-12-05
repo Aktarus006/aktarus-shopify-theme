@@ -5,7 +5,7 @@
         <div class="h-80 overflow-hidden">
           <img
             src="{{ product_product.featured_image.src | image_url: width: 600 }}"
-            class="h-full w-full object-cover"
+            class="h-full w-full transform object-cover transition duration-1000 ease-in-out hover:scale-105"
             alt="{{ product_product.featured_image.alt | escape }}"
             width="600"
             height="600"
@@ -15,8 +15,11 @@
         {{ 'product-2' | placeholder_svg_tag: 'w-full h-80 object-cover bg-gray-100' }}
       {% endif %}
     </a>
-    <div class="flex flex-col bg-gray-800 p-4">
-      <span x-show="section_product.settings.show_product_vendor" class="text-sm text-gray-400">
+    <div
+      class="flex flex-col bg-gray-800 p-4"
+      x-data="{ showVendor: {{ section_product.settings.show_product_vendor }} }"
+    >
+      <span x-show="showVendor" class="text-sm text-gray-400">
         {{- product_product.vendor -}}
       </span>
       <a href="{{ product_product.url }}" class="font-medium text-gray-300 uppercase">{{ product_product.title }}</a>
