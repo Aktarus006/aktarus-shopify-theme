@@ -2,12 +2,17 @@
   {% when 'image' %}
     <img
       class="h-full w-full object-cover"
-      src="{{ media | image_url: 'width: 800' }}"
+      src="{{ media | image_url: width: '800' }}"
       alt="{{ media.preview_image.alt }}"
       width="800"
-      height="800"
+      height="600"
     >
-
+  {% when 'external_video' %}
+    {{ media | external_video_tag: class: 'w-full h-80 object-cover' }}
+  {% when 'video' %}
+    {{ media | video_tag: class: 'w-full h-80 object-cover', controls: true }}
+  {% when 'model' %}
+    {{ media | model_viewer_tag: class: 'w-full h-80 object-cover' }}
   {% else %}
-
+    {{ media | media_tag }}
 {% endcase -%}
