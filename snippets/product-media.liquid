@@ -1,1 +1,13 @@
-Hello
+{% case media.media_type %}
+  {% when 'image' %}
+    <img
+      class="h-full w-full object-cover"
+      src="{{ media | image_url: 'width: 800' }}"
+      alt="{{ media.preview_image.alt }}"
+      width="800"
+      height="800"
+    >
+
+  {% else %}
+
+{% endcase -%}
