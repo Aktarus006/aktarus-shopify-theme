@@ -25,10 +25,16 @@
         "featured_collection": "",
         "number_of_products_to_show": 4
       }
+    },
+    "contact_form_ibrY7D": {
+      "type": "contact-form",
+      "name": "Contact Form",
+      "settings": {}
     }
   },
   "order": [
     "featured-collection",
-    "featured_collection_pgRdim"
+    "featured_collection_pgRdim",
+    "contact_form_ibrY7D"
   ]
 }
