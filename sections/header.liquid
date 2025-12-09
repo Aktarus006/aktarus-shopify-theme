@@ -1,5 +1,5 @@
 {% assign main_menu_linklist = linklists[section.settings.menu].links %}
-<div x-data="{ mobileMenuOpen: false }" class="relative bg-white">
+<div x-data="{ mobileMenuOpen: false, searchBarOpen: false }" class="relative bg-white">
   <div class="mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between py-6 md:justify-start md:space-x-10">
       <!-- STORE NAME / STORE LOGO -->
@@ -59,6 +59,13 @@
       </nav>
 
       <div class="hidden items-center justify-end space-x-5 md:flex md:flex-1">
+        <button
+          x-on:click="searchBarOpen = true"
+          type="button"
+          class="text-base whitespace-nowrap text-gray-500 hover:text-gray-900"
+        >
+          {% render 'icon-search' %}
+        </button>
         <a href="{{ routes.cart_url }}" class="text-base whitespace-nowrap text-gray-500 hover:text-gray-900">
           {% render 'icon-shopping-bag' %}
         </a>
@@ -127,6 +134,26 @@
           </nav>
         </div>
       </div>
+    </div>
+  </div>
+  <div x-show="searchBarOpen" @click.away="searchBarOpen = false" class="absolute top-0 w-full border bg-white">
+    <button type="button" x-on:click="searchBarOpen = false" class="absolute top-0 right-0 mt-5 mr-5 text-gray-500">
+      {% render 'icon-close' %}
+    </button>
+    <div class="flex h-40 items-center justify-center">
+      <form action="{{ routes.search_url }}" method="get" class="flex-auto">
+        <div class="relative border px-10 text-gray-500">
+          <input
+            type="search"
+            name="q"
+            placeholder="Search"
+            class="h-10 w-full rounded-full bg-white px-5 pr-10 text-sm focus:outline-none"
+          >
+          <button type="submit" class="absolute top-0 right-0 mt-2 mr-2 md:mr-20">
+            {% render 'icon-search' %}
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
