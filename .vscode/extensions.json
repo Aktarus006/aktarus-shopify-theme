@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "shopify.theme-check-vscode",
+    "prettier.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "eamodio.gitlens",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-french",
+    "formulahendry.auto-rename-tag",
+    "ms-vsliveshare.vsliveshare",
+    "gruntfuggly.todo-tree"
+  ]
+}
