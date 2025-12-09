@@ -4,7 +4,15 @@
   "description": "[![Generic badge](https://img.shields.io/badge/course%20available%3F-yes-green.svg)](https://shields.io/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "theme:check": "shopify theme check"
+  },
+  "lint-staged": {
+    "*.liquid": "prettier --write",
+    "*.{json,js,css}": "prettier --write"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +24,8 @@
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.10.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2"
   }
