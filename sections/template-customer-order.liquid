@@ -1,0 +1,33 @@
+<div class="mx-auto max-w-6xl px-4 py-12">
+  <div class="my-5 flex items-start justify-between md:items-end">
+    <div class="w-1/2">
+      <h1 class="text-2xl font-bold text-gray-700">Order {{ order.name }}</h1>
+      <p class="py-2 text-gray-500">Placed on {{ order.created_at | date: '%B %d, %Y' }}</p>
+      <span class="my-2 rounded-full bg-gray-700 px-4 py-1 text-sm text-white">{{ order.financial_status_label }}</span>
+    </div>
+    <a href="{{ routes.account_url }}" class="font-medium text-blue-700 underline hover:text-blue-900"
+      >Back to Account</a
+    >
+  </div>
+  <div>
+    {% for line_item in order %}
+      <div class="mb-4 w-full divide-y rounded-sm border border-gray-200">
+        <div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 md:p-12 lg:grid-cols-3 lg:gap-12">
+          <div class="min-h-80 w-full overflow-hidden rounded-md bg-gray-200">
+            {% if line_item.image %}
+              <img
+                src="{{ line_item.image |  image_url: width: 800 }}"
+                alt="{{ line_item.title }}"
+                class="h-full w-full object-cover object-center"
+                width="800"
+                height="800"
+              >
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover object-center' }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -13,5 +13,6 @@
   },
   "[css]": {
     "editor.defaultFormatter": "prettier.prettier-vscode"
-  }
+  },
+  "cSpell.words": ["endfor", "endpaginate"]
 }
