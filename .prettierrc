@@ -5,7 +5,7 @@
       "files": "*.liquid",
       "options": {
         "parser": "liquid-html",
-        "printWidth": 140,
+        "printWidth": 120,
         "tabWidth": 2,
         "singleQuote": false,
         "bracketSameLine": true,
