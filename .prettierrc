@@ -5,10 +5,11 @@
       "files": "*.liquid",
       "options": {
         "parser": "liquid-html",
-        "printWidth": 120,
+        "printWidth": 140,
         "tabWidth": 2,
         "singleQuote": false,
-        "bracketSameLine": false
+        "bracketSameLine": true,
+        "htmlWhitespaceSensitivity": "ignore"
       }
     },
     {
