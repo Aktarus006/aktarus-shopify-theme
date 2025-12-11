@@ -14,5 +14,20 @@
   "[css]": {
     "editor.defaultFormatter": "prettier.prettier-vscode"
   },
-  "cSpell.words": ["endfor", "endpaginate"]
+  "cSpell.words": [
+    "aktarus",
+    "endcase",
+    "endfor",
+    "endform",
+    "endpaginate",
+    "endschema",
+    "evenodd",
+    "itemprop",
+    "itemscope",
+    "itemtype",
+    "linecap",
+    "linejoin",
+    "truncatewords",
+    "tuto"
+  ]
 }
